@@ -1,5 +1,5 @@
 from typing import Dict, List
-
+from typing import Any
 
 def filter_by_state(user_information: List[Dict], state: str = "EXECUTED") -> List[Dict]:
     """Функция принимает список словарей и значение для ключа
