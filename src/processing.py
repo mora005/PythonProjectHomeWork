@@ -1,6 +1,7 @@
 from typing import Dict, List
 from typing import Any
 
+
 def filter_by_state(user_information: List[Dict], state: str = "EXECUTED") -> List[Dict]:
     """Функция принимает список словарей и значение для ключа
     state(по умолчанию 'EXECUTED') возвращая новый список словарей,
@@ -20,7 +21,7 @@ def filter_by_state(user_information: List[Dict], state: str = "EXECUTED") -> Li
 
 
 def sort_by_date(user_dict: List[Dict[str, Any]], date: bool = True) -> List[Dict[str, Any]]:
-    """Функция принимает список словарей и необязательный параметр, задающий порядок сортировки
-    (по умолчанию — убывание) возвращает новый список, отсортированный по дате."""
-    sorted_dates = sorted(user_dict, key=lambda x: x["date"], reverse=date)
+    """Функция принимает список словарей и необязательный параметр, задающий порядок сортировки,
+    возвращает новый список словарей, отсортированный по дате возрастания."""
+    sorted_dates = sorted(user_dict, key=lambda x: x["date"])
     return sorted_dates
