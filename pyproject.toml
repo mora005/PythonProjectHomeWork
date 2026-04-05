@@ -23,7 +23,9 @@ lint = [
     "isort (>=7.0.0,<8.0.0)"
 ]
 dev = [
-    "flake8 (>=7.3.0,<8.0.0)"
+    "flake8 (>=7.3.0,<8.0.0)",
+    "pytest (>=9.0.2,<10.0.0)",
+    "pytest-cov (>=7.1.0,<8.0.0)"
 ]
 
 [tool.mypy]
@@ -42,3 +44,5 @@ line-length = 119
 # Файлы, которые не нужно форматировать
 exclude = '(/(.eggs|.git|dist)/|foo.py)'
 
+[tool.poetry.group.dev.dependencies]
+pytest = "^8.0.0"

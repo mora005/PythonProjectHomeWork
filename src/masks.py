@@ -20,6 +20,7 @@ def get_mask_account(bank_num: int | str) -> str:
     if len(bank_str) != 6:
         masked = f"**{bank_str[-4:]}"
         return masked
-
+    else:
+        return "Oшибка, проверьте правильность ввода номера счёта"
 
 # возвращает замаскированный банковский счёт
