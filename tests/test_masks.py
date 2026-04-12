@@ -1,8 +1,9 @@
-from src.masks import get_mask_card_number, get_mask_account
 import pytest
 
+from src.masks import get_mask_account, get_mask_card_number
 
-def test_get_mask_card_number():
+
+def test_get_mask_card_number() -> None:
     """Функция тестирующая различные сценарии ввода у функции
     get_mask_card_number из модуля masks.py"""
     assert get_mask_card_number(1234567891234567) == "1234 56** **** 4567"
@@ -14,12 +15,11 @@ def test_get_mask_card_number():
         get_mask_card_number("")
 
 
-def test_get_mask_account():
+def test_get_mask_account() -> None:
     """Функция тестирующая различные сценарии ввода у функции
     get_mask_account из модуля masks.py"""
     assert get_mask_account(12345678112345678123) == "**8123"
     with pytest.raises(ValueError):
         get_mask_account(123456)
     with pytest.raises(ValueError):
-            get_mask_account("1a11d323d")
-
+        get_mask_account("1a11d323d")

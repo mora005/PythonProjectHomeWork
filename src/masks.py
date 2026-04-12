@@ -18,8 +18,9 @@ def get_mask_account(bank_num: int | str) -> str:
     """Функция принимающая на вход номер счёта"""
     bank_str = str(bank_num)
     if len(bank_str) == 20:
-        masked = f"**{bank_str[-4:]}" #73654108430135874305
+        masked = f"**{bank_str[-4:]}"  # 73654108430135874305
         return masked
     raise ValueError("Oшибка, проверьте правильность ввода номера счёта")
+
 
 # возвращает замаскированный банковский счёт
