@@ -8,7 +8,7 @@ def get_mask_card_number(card_num: Union[str, int]) -> Union[str]:
         mask = f"{card_str[:4]} {card_str[4:6]}** **** {card_str[-4:]}"
         return mask
     else:
-        return "Ошибка, проверьте правильность ввода номера карты"
+        raise ValueError("Ошибка, проверьте правильность ввода номера карты")
 
 
 # возвращает замаскированый номер карты
@@ -17,10 +17,9 @@ def get_mask_card_number(card_num: Union[str, int]) -> Union[str]:
 def get_mask_account(bank_num: int | str) -> str:
     """Функция принимающая на вход номер счёта"""
     bank_str = str(bank_num)
-    if len(bank_str) != 6:
-        masked = f"**{bank_str[-4:]}"
+    if len(bank_str) == 20:
+        masked = f"**{bank_str[-4:]}" #73654108430135874305
         return masked
-    else:
-        return "Oшибка, проверьте правильность ввода номера счёта"
+    raise ValueError("Oшибка, проверьте правильность ввода номера счёта")
 
 # возвращает замаскированный банковский счёт

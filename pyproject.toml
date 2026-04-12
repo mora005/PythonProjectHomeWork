@@ -43,6 +43,3 @@ line_length = 119
 line-length = 119
 # Файлы, которые не нужно форматировать
 exclude = '(/(.eggs|.git|dist)/|foo.py)'
-
-[tool.poetry.group.dev.dependencies]
-pytest = "^8.0.0"
