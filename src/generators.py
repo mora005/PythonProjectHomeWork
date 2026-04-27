@@ -10,6 +10,16 @@ if __name__ == "__main__":
         print(next(usd_transactions))
 
 
+def transaction_descriptions(transactions):
+    '''генератор который принимает список словарей с транзакциями и возвращает описание каждой операции по очереди.'''
+    for transaction in transactions:
+        yield transaction["description"]
+descriptions = transaction_descriptions(transactions)
+if __name__ == "__main__":
+    for _ in range(5):
+        print(next(descriptions))
+
+
 def card_number_generator (start: int = 1, stop: int = 9) -> None :
     ''' генератор который выдает номера банковских карт в формате XXXX XXXX XXXX XXXX
 Генератор может сгенерировать номера карт в заданном диапазоне от 0000 0000 0000 0001 до 9999 9999 9999 9999.'''
