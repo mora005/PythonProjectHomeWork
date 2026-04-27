@@ -1,7 +1,13 @@
-
-
-
-
+def filter_by_currency(transactions, currency_code) -> None:
+    ''' функция которая принимает на вход список словарей, представляющих транзакции.
+возвращает итератор, который поочередно выдает транзакции, где валюта операции соответствует заданной'''
+    return (transaction for transaction in transactions if
+        transaction['operationAmount']['currency']['code'] == currency_code)
+for transaction in transactions:
+    usd_transactions = filter_by_currency(transactions, "USD")
+if __name__ == "__main__":
+    for parts in range(2):
+        print(next(usd_transactions))
 
 
 def card_number_generator (start: int = 1, stop: int = 9) -> None :
