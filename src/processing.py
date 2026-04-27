@@ -10,8 +10,9 @@ def filter_by_state(list_dicts: List[Dict], state: str = "EXECUTED") -> List[Dic
     for filter_dict in list_dicts:
         if filter_dict.get("state") == state:
             filter_dicts.append(filter_dict)
-
-    return filter_dicts
+            return filter_dicts
+        else:
+            raise ValueError("Ошибка, проверьте формат ввода списка словарей")
 
 
 def sort_by_date(user_dict: List[Dict[str, Any]], date: bool = True) -> List[Dict[str, Any]]:
