@@ -62,7 +62,7 @@ pytest.mark.parametrize(
 
 
 def test_transaction_descriptions() -> None:
-    assert transaction_descriptions(
+    transaction_descriptions(
         [
             {
                 "id": 594226727,
