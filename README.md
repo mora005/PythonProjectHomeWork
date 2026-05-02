@@ -90,11 +90,13 @@ src\masks.py                  13      0   100%
 src\processing.py             12      0   100%
 src\widget.py                 16      0   100%
 tests\__init__.py              0      0   100%
-tests\conftest.py              0      0   100%
+tests\conftest.py              7      2    71%
+tests\test_generators.py      19     10    47%
 tests\test_masks.py           15      0   100%
 tests\test_processing.py      15      0   100%
 tests\test_widget.py          16      0   100%
 ----------------------------------------------
+TOTAL                        113     12    89%
 ```
 
 
