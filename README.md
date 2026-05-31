@@ -86,18 +86,20 @@ for _ in range(5):
 Name                       Stmts   Miss  Cover
 ----------------------------------------------
 src\__init__.py                0      0   100%
+src\decorators.py             22      2    91%
 src\generators.py             21      6    71%
 src\masks.py                  13      0   100%
 src\processing.py             11      0   100%
 src\widget.py                 16      0   100%
 tests\__init__.py              0      0   100%
 tests\conftest.py              7      2    71%
+tests\test_decorators.py       9      0   100%
 tests\test_generators.py      18      0   100%
 tests\test_masks.py           15      0   100%
 tests\test_processing.py      15      0   100%
 tests\test_widget.py          16      0   100%
 ----------------------------------------------
-TOTAL                        132      8    94%
+TOTAL                        163     10    94%
 ```
 
 
