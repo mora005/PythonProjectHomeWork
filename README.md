@@ -36,6 +36,48 @@ pip install -r requirements.txt
 {'id': 594226727, 'state': 'CANCELED', 'date': '2018-09-12T21:27:25.241689'},
 {'id': 939719570, 'state': 'EXECUTED', 'date': '2018-06-30T02:08:58.425572'}]
 ```
+### Функция ```filter_by_currency```
+функция которая принимает на вход список словарей, представляющих транзакции.
+возвращает итератор, который поочередно выдает транзакции, где валюта операции соответствует заданной
+#### Пример использования при заданой валюте "USD"
+```
+usd_transactions = filter_by_currency(transactions, "USD")
+for _ in range(2):
+    print(next(usd_transactions))
+
+>>> {
+          "id": 939719570,
+          "state": "EXECUTED",
+          "date": "2018-06-30T02:08:58.425572",
+          "operationAmount": {
+              "amount": "9824.07",
+              "currency": {
+                  "name": "USD",
+                  "code": "USD"
+              }
+          },
+          "description": "Перевод организации",
+          "from": "Счет 75106830613657916952",
+          "to": "Счет 11776614605963066702"
+      }
+```      
+### Генератор ```transaction_descriptions```
+генератор который принимает список словарей с транзакциями и возвращает описание каждой операции по очереди.
+### Генератор ```card_number_generator```
+генератор который выдает номера банковских карт в формате XXXX XXXX XXXX XXXX,
+может сгенерировать номера карт в заданном диапазоне от 0000 0000 0000 0001 до 9999 9999 9999 9999.
+#### Пример использования, где показывается последние 5 операций
+```
+descriptions = transaction_descriptions(transactions)
+for _ in range(5):
+    print(next(descriptions))
+
+>>> Перевод организации
+    Перевод со счета на счет
+    Перевод со счета на счет
+    Перевод с карты на карту
+    Перевод организации
+```
 ## Тестирование
 
 Для каждого модуля были созданы тесты в папке tests, проверяющие различные сценарии ввода у функций.
@@ -44,15 +86,20 @@ pip install -r requirements.txt
 Name                       Stmts   Miss  Cover
 ----------------------------------------------
 src\__init__.py                0      0   100%
+src\decorators.py             22      2    91%
+src\generators.py             21      6    71%
 src\masks.py                  13      0   100%
-src\processing.py             12      0   100%
+src\processing.py             11      0   100%
 src\widget.py                 16      0   100%
 tests\__init__.py              0      0   100%
-tests\conftest.py              0      0   100%
+tests\conftest.py              7      2    71%
+tests\test_decorators.py       9      0   100%
+tests\test_generators.py      18      0   100%
 tests\test_masks.py           15      0   100%
 tests\test_processing.py      15      0   100%
 tests\test_widget.py          16      0   100%
 ----------------------------------------------
+TOTAL                        163     10    94%
 ```
 
 
